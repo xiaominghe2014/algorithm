@@ -10,6 +10,8 @@
 
 #ifndef sort_h
 #define sort_h
+#include	<stdlib.h>
+#include	<malloc.h>
 
 namespace sort {
     
