@@ -8,7 +8,6 @@ all:   install
 install:
 
 ifeq ($(UNAME_S),Linux)
-	(\
 	  if [ "$CXX" = "g++" ]; then sudo add-apt-repository -y ppa:ubuntu-toolchain-r/test; fi \
 	  if [ "$CXX" = "g++" ]; then sudo add-apt-repository -y ppa:zoogie/sdl2-snapshots; fi \
 	  if [ "$CXX" = "g++" ]; then sudo apt-get update; fi \
@@ -17,7 +16,6 @@ ifeq ($(UNAME_S),Linux)
 	  if [ "$CXX" = "g++" ]; then sudo apt-get install -y g++-4.8; fi \
 	  if [ "$CXX" = "g++" ]; then sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-4.8 50; fi \
 	  if [ "$CXX" = "g++" ]; then sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-4.8 50; fi \
-	)
 else
 	@echo "is not linux sys opt"
 
