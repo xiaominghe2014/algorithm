@@ -1,0 +1,29 @@
+language: cpp
+sudo: required
+
+#install:
+#    - ./xlib
+#before_script:
+#    - if [ "${CXX}" == "g++" ]; then export CXX="g++-4.8" CC="gcc-4.8"; fi
+#    - if [ "${CXX}" == "clang++" ]; then export CXX="clang++-3.2" CC="clang-3.2"; fi
+#
+#    - if [ "${CXX}" == "clang++" ]; then sudo apt-get -qq install clang-3.2; fi
+#    - sudo apt-get install g++-4.8;
+script:
+    - make clean&&make&&./xlib
+compiler:
+- clang
+- g++
+os:
+#- linux
+- osx
+branches:
+ only:
+ - master
+notifacations:
+ email: false
+ irc:
+ - "%{repository}/%{branch} (%{commit} - %{author}): %{build_url}: %{message}"
+env:
+ global:
+ - LANG="en_US.UTF-8"
