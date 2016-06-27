@@ -11,7 +11,7 @@
 #ifndef sort_h
 #define sort_h
 #include	<stdlib.h>
-#include	<malloc.h>
+//#include	<malloc.h>
 
 namespace sort {
     
@@ -82,7 +82,8 @@ namespace sort {
         template<class T,size_t N>
         void mergeSort(T (&A)[N], int Left, int Middle, int Right)
         {
-            T* tmp = (T*)malloc(N*sizeof(T)) ;
+            //T* tmp = (T*)malloc(N*sizeof(T)) ;
+            T* tmp = new T[N*sizeof(T)];
             int i = Left, j = Middle + 1;
             
             for (int step = 0; step < Right - Left + 1; ++step)
@@ -103,7 +104,8 @@ namespace sort {
             {
                 A[Left + step] = tmp[step];
             }
-            free(tmp);
+            //free(tmp);
+            delete[] tmp;
             tmp = nullptr;
             return;
         }
