@@ -199,7 +199,9 @@ namespace sort {
                 radix = radix * 10;
             }
             delete[]tmp;
+            tmp = nullptr;
             delete[]count;
+            count = nullptr;
         }
         
     }
