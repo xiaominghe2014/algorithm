@@ -40,4 +40,3 @@ notifacations:
 env:
  global:
  - LANG="en_US.UTF-8"
- - CODECLIMATE_REPO_TOKEN="46146344402d8fa58a23988a29ba69d9e2e96b738ac6e74a61519f063207a03c"
