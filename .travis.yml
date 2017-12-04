@@ -12,6 +12,7 @@ install:
 script:
     - if [ "$CXX" = "g++" ]; then g++ --version; fi
     - if [ "$CXX" != "g++" ]; then clang++ --version; fi
+    - cd algorithm
     - make clean
     - make
     - ./algorithm
