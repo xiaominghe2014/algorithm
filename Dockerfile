@@ -8,4 +8,4 @@ MAINTAINER ximena "xiaominghe2014@gmail.com"
 COPY . /usr/src/algorithm
 WORKDIR /usr/src/algorithm
 
-CMD ["./algorithm"]
+#CMD ["./algorithm"]
