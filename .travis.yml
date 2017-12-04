@@ -1,6 +1,10 @@
 language: cpp
 sudo: required
-
+services:
+        - docker
+before_install:
+        - docker build -t ximena-gcc-algorithm .
+        - docker run --rm -v "$PWD":/usr/src/algorithm -w /usr/src/algorithm ximena-gcc-algorithm
 install:
 
  - make -f shCXX
@@ -12,23 +16,23 @@ script:
     - make
     - ./algorithm
 
-matrix:
-  include:
-  - os: linux
-    env: PROJECT=xonotic OS="linux32"
-    compiler: g++
-  - os: linux
-    env: PROJECT=xonotic OS="linux64"
-    compiler: g++
-  - os: linux
-    env: PROJECT=xonotic OS="win32"
-    compiler: g++
-  - os: linux
-    env: PROJECT=xonotic OS="win64"
-    compiler: g++
-  - os: osx
-    env: PROJECT=xonotic OS="osx"
-    compiler: clang++
+# matrix:
+#   include:
+#   - os: linux
+#     env: PROJECT=xonotic OS="linux32"
+#     compiler: g++
+#   - os: linux
+#     env: PROJECT=xonotic OS="linux64"
+#     compiler: g++
+#   - os: linux
+#     env: PROJECT=xonotic OS="win32"
+#     compiler: g++
+#   - os: linux
+#     env: PROJECT=xonotic OS="win64"
+#     compiler: g++
+#   - os: osx
+#     env: PROJECT=xonotic OS="osx"
+#     compiler: clang++
 
 branches:
  only:
@@ -40,4 +44,5 @@ notifacations:
 env:
  global:
  - LANG="en_US.UTF-8"
+
  - CODECLIMATE_REPO_TOKEN="46146344402d8fa58a23988a29ba69d9e2e96b738ac6e74a61519f063207a03c"
