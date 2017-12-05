@@ -4,7 +4,17 @@ services:
         - docker
 install:
         - docker build -t ximena-gcc-algorithm .
-        - docker run --rm -v "$PWD":/usr/src/algorithm -w /usr/src/algorithm ximena-gcc-algorithm make
+        - docker images
+        - docker run --name  test -it -d ximena-gcc-app:latest
+        - docker ps
+        - docker attach test
+        - make&&./algorithm
+        - exit
+        - docker ps -a
+        - docker rm test
+        - docker ps -a
+        - docker rmi ximena-gcc-app
+        - docker images
 branches:
  only:
  - master
