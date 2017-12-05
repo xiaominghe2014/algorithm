@@ -11,4 +11,4 @@ RUN pwd \
     make -f makefile \
     make cleanobj \
     ./algorithm
-CMD ["make","clean"]
+CMD ["ls"]
