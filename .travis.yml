@@ -5,19 +5,8 @@ services:
 before_install:
         - docker build -t ximena-gcc-app .
         - docker images
-        - docker run --name  test -it -d ximena-gcc-app
-install:
-        - docker ps
-        - docker attach test
-        - make&&./algorithm
-        - exit
-        - docker ps -a
-        - docker rm test
-        - docker ps -a
-        - docker rmi ximena-gcc-app
-        - docker images
 script:
-        - echo
+        - docker run ximena-gcc-app
 branches:
  only:
  - master
