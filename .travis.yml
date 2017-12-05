@@ -4,7 +4,6 @@ services:
         - docker
 before_install:
         - docker build -t ximena-gcc-app .
-        - docker images
 script:
         - docker run ximena-gcc-app
 branches:
