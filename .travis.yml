@@ -4,9 +4,9 @@ services:
         - docker
 before_install:
         - docker build -t ximena-gcc-algorithm .
+install:
         - docker images
         - docker run --name  test -it -d ximena-gcc-app:latest 
-install:
         - docker ps
         - docker attach test
         - make&&./algorithm
