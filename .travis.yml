@@ -2,10 +2,11 @@ language: cpp
 sudo: required
 services:
         - docker
-install:
+before_install:
         - docker build -t ximena-gcc-algorithm .
         - docker images
-        - docker run --name  test -it -d ximena-gcc-app:latest
+        - docker run --name  test -it -d ximena-gcc-app:latest 
+install:
         - docker ps
         - docker attach test
         - make&&./algorithm
@@ -15,6 +16,8 @@ install:
         - docker ps -a
         - docker rmi ximena-gcc-app
         - docker images
+script:
+        - echo
 branches:
  only:
  - master
