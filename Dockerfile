@@ -7,5 +7,7 @@ MAINTAINER ximena "xiaominghe2014@gmail.com"
 
 COPY . /usr/src/algorithm
 WORKDIR /usr/src/algorithm
-
-CMD ["make"]
+RUN make \
+    make cleanobj \
+    ./algorithm
+CMD ["make","clean"]
