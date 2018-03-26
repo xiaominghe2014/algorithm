@@ -38,8 +38,8 @@ namespace hash {
                         values_tmp[i] = V();
                     }
                 }
-                delete keys;
-                delete values;
+                delete[] keys;
+                delete[] values;
                 keys = keys_tmp;
                 values = values_tmp;
             }else{
